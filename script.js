@@ -30,6 +30,8 @@ console.log(userchoice);
 reset.addEventListener ("click", () => {
    startcompscore.innerText = 0;
    startuserscore.innerText = 0;
+   userscore = startuserscore.innerText;
+   compscore = startcompscore.innerText;
    message.innerText = "Let's Gooo!";
    message.classList.add("msg");
    message.classList.remove("msg2");
