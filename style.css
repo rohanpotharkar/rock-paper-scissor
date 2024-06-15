@@ -1,0 +1,13 @@
+img {
+   height: 100px;
+   border: 2px dashed black;
+   border-radius: 50%;
+}
+
+.msg3 {
+   color: red;
+}
+
+.msg2 {
+   color: green;
+}
