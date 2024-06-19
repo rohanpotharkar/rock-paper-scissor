@@ -3,7 +3,7 @@ let compscore = 0;
 let startuserscore = document.querySelector(".userscore");
 let startcompscore = document.querySelector(".compscore");
 let choices = document.querySelectorAll(".choice");
-let rock = document.querySelector("#rock");
+let stone = document.querySelector("#stone");
 let paper = document.querySelector("#paper");
 let scissor = document.querySelector("#scissor");
 let message = document.querySelector("#msg");
@@ -12,19 +12,16 @@ let reset = document.querySelector("#reset");
 let userchoice = null;
 
 //for getting rock choice
-rock.addEventListener ("click", () => {
-userchoice = "rock";
-console.log(userchoice);
+stone.addEventListener ("click", () => {
+userchoice = "stone";
 });
 //for getting paper choice
 paper.addEventListener ("click", () => {
 userchoice = "paper";
-console.log(userchoice);
 });
 //for getting scissor choice
 scissor.addEventListener ("click", () => {
 userchoice = "scissor";
-console.log(userchoice);
 });
 //for resetting the game
 reset.addEventListener ("click", () => {
@@ -40,7 +37,7 @@ reset.addEventListener ("click", () => {
 
 let compnum = null;
 let compchoice = null;
-let options = ["rock", "paper", "scissor"];
+let options = ["stone", "paper", "scissor"];
 
 //fuction to get random number
 function getRandomInt(max) {
@@ -50,18 +47,15 @@ function getRandomInt(max) {
 //for getting computer's choice
 choices.forEach((choice) => {
   choice.addEventListener("click", () => {
-    if (userchoice == "rock") {
+    if (userchoice == "stone") {
       compnum = getRandomInt(3);
       compchoice = options[compnum];
-      console.log(compchoice);
     } else if (userchoice == "paper") {
       compnum = getRandomInt(3);
       compchoice = options[compnum];
-      console.log(compchoice);
     } else if (userchoice == "scissor") {
       compnum = getRandomInt(3);
       compchoice = options[compnum];
-      console.log(compchoice);
     }
     result();
 })
@@ -71,50 +65,50 @@ choices.forEach((choice) => {
 function result() {
   //for draw game
   if (userchoice == compchoice) {
-    message.innerText = "Game was a draw. You both selected " + userchoice;
+    message.innerText = "It's Draw! You both selected " + userchoice;
     message.classList.remove("msg2", "msg3");
     message.classList.add("msg");
   } 
   //situation no. 1
-  else if (userchoice == "rock" && compchoice == "paper") {
-    message.innerText = "You lose. Your " + userchoice + " covered by " + compchoice;
+  else if (userchoice == "stone" && compchoice == "paper") {
+    message.innerText = "You lose! " + " Computer selected " + compchoice;
     message.classList.remove("msg2", "msg");
     message.classList.add("msg3");
     compscore++;
     startcompscore.innerText = compscore;
     //situation no. 2
-  } else if (userchoice == "rock" && compchoice == "scissor") {
-    message.innerText = "You Won! Your " + userchoice + " destroyed " + compchoice;
+  } else if (userchoice == "stone" && compchoice == "scissor") {
+    message.innerText = "You Won! " + " Computer selected " + compchoice;
     message.classList.remove("msg3", "msg");
     message.classList.add("msg2");
     userscore++;
     startuserscore.innerText = userscore;
   } 
   //situation no. 3
-  else if (userchoice == "paper" && compchoice == "rock") {
-    message.innerText = "You Won! Your " + userchoice + " covered " + compchoice;
+  else if (userchoice == "paper" && compchoice == "stone") {
+    message.innerText = "You Won! " + " Computer selected " + compchoice;
     message.classList.remove("msg3", "msg");
     message.classList.add("msg2");
     userscore++;
     startuserscore.innerText = userscore;
     //situation no. 4
   } else if (userchoice == "paper" && compchoice == "scissor") {
-    message.innerText = "You lose! Your " + userchoice + " cut by " + compchoice;
+    message.innerText = "You lose! " + " Computer selected " + compchoice;
     message.classList.remove("msg2", "msg");
     message.classList.add("msg3");
     compscore++;
     startcompscore.innerText = compscore;
   }
   //situation no. 5
-  else if (userchoice == "scissor" && compchoice == "rock") {
-    message.innerText = "You lose! Your " + userchoice + " destroyed by " + compchoice;
+  else if (userchoice == "scissor" && compchoice == "stone") {
+    message.innerText = "You lose! " + " Computer selected " + compchoice;
     message.classList.remove("msg2", "msg");
     message.classList.add("msg3");
     compscore++;
     startcompscore.innerText = compscore;
     //situation no.6
   } else if (userchoice == "scissor" && compchoice == "paper") {
-    message.innerText = "You Won! Your " + userchoice + " cut " + compchoice;
+    message.innerText = "You Won! " + " Computer selected " + compchoice;
     message.classList.remove("msg3", "msg");
     message.classList.add("msg2");
     userscore++;
